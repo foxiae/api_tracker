@@ -1,0 +1,36 @@
+<%= form_for @trackers do |f| %>
+
+  <% if @tracker.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@tracker.errors.count, "error") %> prohibited
+        this URL from being saved:
+      </h2>
+      <ul>
+        <% @tracker.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :api_name %><br>
+    <%= f.text_field :api_name %>
+  </p>
+
+  <p>
+    <%= f.label :url %><br>
+    <%= f.text_field :url %>
+  </p>
+
+  <p>
+    <%= f.label :notes %><br>
+    <%= f.text_area :notes %>
+  </p>
+
+  <p>
+    <%= f.submit %>
+  </p>
+
+<% end %>

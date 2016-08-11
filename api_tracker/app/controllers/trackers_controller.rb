@@ -1,4 +1,4 @@
-class TrackerController < ApplicationController
+class TrackersController < ApplicationController
   def index
     @trackers = Tracker.all
   end
@@ -8,13 +8,16 @@ class TrackerController < ApplicationController
   end
 
   def new
+    @tracker = Tracker.new
   end
 
   def create
     @tracker = Tracker.new(tracker_params)
-
-    @tracker.save
-    redirect_to @tracker
+    if @tracker.save
+      redirect_to @tracker
+    else
+      render 'new'
+    end
   end
 
   def edit
@@ -25,8 +28,11 @@ class TrackerController < ApplicationController
     @tracker = Tracker.find(params[:id])
 
     @tracker.update_attributes(tracker_params)
-    @tracker.save
-    redirect_to @tracker
+    if @tracker.save
+      redirect_to @tracker
+    else
+      render 'edit'
+    end
   end
 
   def destroy
