@@ -36,7 +36,10 @@ class TrackersController < ApplicationController
   end
 
   def destroy
-    #TODO
+    @tracker = Tracker.find(params[:id])
+    @tracker.destroy
+
+    redirect_to trackers_path
   end
 
   private

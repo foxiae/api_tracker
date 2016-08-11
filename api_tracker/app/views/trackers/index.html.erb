@@ -18,6 +18,9 @@
       <td><%= t.notes %></td>
       <td><%= link_to 'Show', tracker_path(t) %></td>
       <td><%= link_to 'Edit', edit_tracker_path(t) %></td>
+      <td><%= link_to 'Delete', tacker_path(t),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>

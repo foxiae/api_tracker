@@ -15,10 +15,7 @@ ActiveRecord::Schema.define(version: 20160811005036) do
   create_table "trackers", force: :cascade do |t|
     t.string   "api_name"
     t.string   "url"
-    t.text     "url_body"
     t.text     "notes"
-    t.text     "message"
-    t.text     "url_check"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
