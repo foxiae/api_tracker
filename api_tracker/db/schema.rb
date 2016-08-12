@@ -10,12 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811005036) do
+ActiveRecord::Schema.define(version: 20160811194648) do
+
+  create_table "checkers", force: :cascade do |t|
+    t.datetime "date"
+    t.text     "check_body"
+    t.integer  "tracker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tracker_id"], name: "index_checkers_on_tracker_id"
+  end
 
   create_table "trackers", force: :cascade do |t|
     t.string   "api_name"
     t.string   "url"
     t.text     "notes"
+    t.text     "url_body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

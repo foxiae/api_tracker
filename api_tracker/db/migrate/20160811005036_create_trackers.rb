@@ -4,6 +4,7 @@ class CreateTrackers < ActiveRecord::Migration[5.0]
       t.string :api_name
       t.string :url
       t.text :notes
+      t.text :url_body
 
       t.timestamps
     end
